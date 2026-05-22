@@ -1,0 +1,2171 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Ritual Cyberpunk NFT</title>
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap"
+rel="stylesheet"
+/>
+
+</head>
+
+<body>
+
+<!-- SCANLINE -->
+<div class="scanline"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="top-navbar">
+
+<button
+class="market-toggle"
+onclick="toggleMarket()"
+>
+MARKET
+</button>
+
+</div>
+
+<!-- ================= MARKET SIDEBAR ================= -->
+
+<div
+class="market-sidebar"
+id="market-sidebar"
+>
+
+<div class="market-header">
+
+<div class="market-title">
+MARKET
+</div>
+
+<button
+class="close-market"
+onclick="toggleMarket()"
+>
+✕
+</button>
+
+</div>
+
+<div
+class="market-grid"
+id="market-grid"
+>
+
+<!-- MARKET ITEMS AUTO -->
+
+</div>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+<!-- ================= HERO ================= -->
+
+<div class="hero">
+
+<div class="hero-left">
+
+<div class="badge">
+RITUAL TESTNET
+</div>
+
+<h1>
+SUMMON<br>
+CYBER ENTITY
+</h1>
+
+<p>
+Mint futuristic cyberpunk entities powered by Ritual Testnet.
+Every summon unlocks a mysterious AI character from the digital realm.
+</p>
+
+</div>
+
+<!-- HERO BANNER -->
+
+<div class="hero-banner">
+
+<div class="banner-wrap">
+
+<img
+src="assets/banner.png"
+class="side-banner"
+/>
+
+<div class="banner-overlay"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= MAIN UI ================= -->
+
+<div class="top-ui">
+
+<!-- LEFT -->
+
+<div class="wallet-card">
+
+<!-- CONNECT -->
+
+<button
+id="connect-wallet"
+class="connect-btn"
+>
+CONNECT WALLET
+</button>
+
+<div id="wallet-address">
+Wallet not connected
+</div>
+
+<!-- STATS -->
+
+<div class="stats-row">
+
+<div class="stat-box">
+
+<div class="stat-label">
+TOTAL MINTS
+</div>
+
+<div
+class="stat-value"
+id="mint-count"
+>
+0
+</div>
+
+</div>
+
+<div class="stat-box">
+
+<div class="stat-label">
+SUPPLY LEFT
+</div>
+
+<div
+class="stat-value"
+id="live-supply"
+>
+5000
+</div>
+
+</div>
+
+</div>
+
+<!-- SUMMON -->
+
+<div class="summon-wrapper">
+
+<div class="summon-area">
+
+<div class="summon-circle">
+
+<div
+class="ritual-card"
+id="gacha-display"
+>
+?
+</div>
+
+</div>
+
+</div>
+
+<button
+class="mint-btn"
+id="mint-button"
+>
+SUMMON ENTITY
+</button>
+
+<div class="mint-desc">
+POWERED BY RITUAL TESTNET
+</div>
+
+<div
+class="scan-status"
+id="scan-text"
+>
+AI ENTITY SCANNER READY
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE INFO -->
+
+<div class="info-panel">
+
+<div class="info-card">
+
+<h3>
+DIGITAL RITUAL
+</h3>
+
+<p>
+Enter the cyber realm and summon futuristic AI entities powered by Ritual Testnet technology.
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+RARITY SYSTEM
+</h3>
+
+<p>
+Unlock Common, Rare, Epic, and Legendary entities with unique futuristic visuals.
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+ONCHAIN COLLECTION
+</h3>
+
+<p>
+Build your personal cyber entity archive directly connected to your wallet.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= COLLECTION ================= -->
+
+<div class="collection-section">
+
+<div class="collection-title">
+ENTITY COLLECTION
+</div>
+
+<div class="filter-tabs">
+
+<button
+class="filter-btn active"
+data-filter="all"
+>
+ALL
+</button>
+
+<button
+class="filter-btn"
+data-filter="legendary"
+>
+LEGENDARY
+</button>
+
+<button
+class="filter-btn"
+data-filter="epic"
+>
+EPIC
+</button>
+
+<button
+class="filter-btn"
+data-filter="rare"
+>
+RARE
+</button>
+
+<button
+class="filter-btn"
+data-filter="common"
+>
+COMMON
+</button>
+
+</div>
+
+<div
+class="collection-grid"
+id="collection-grid"
+>
+
+<div class="empty">
+No entities collected yet.
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= HISTORY ================= -->
+
+<div class="history-box">
+
+<div class="history-title">
+LATEST SUMMONS
+</div>
+
+<div
+class="history-list"
+id="history-list"
+>
+
+<div class="history-item">
+No summons yet
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= MODAL ================= -->
+
+<div
+class="modal"
+id="modal"
+>
+
+<div class="modal-content">
+
+<div id="modal-card"></div>
+
+<button
+class="close-btn"
+onclick="closeModal()"
+>
+Close
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+function toggleMarket(){
+
+document
+.getElementById('market-sidebar')
+.classList.toggle('active');
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html><style> /* ========= RESET ========= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+/* ========= ROOT ========= */
+
+:root{
+
+--bg-primary:#07110b;
+--bg-secondary:#0b1a12;
+--bg-card:#102117;
+
+--neon-green:#00ff88;
+--neon-green2:#00cc6a;
+--neon-green3:#66ffb2;
+
+--text:#e8fff4;
+--text-dim:#8fbfa7;
+}
+
+/* ========= BASE ========= */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Rajdhani',sans-serif;
+
+background:
+radial-gradient(circle at top,#00ff8812,transparent 35%),
+#07110b;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+position:relative;
+}
+
+/* ========= GRID ========= */
+
+body::before{
+
+content:'';
+
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+
+background-size:50px 50px;
+
+pointer-events:none;
+
+z-index:-2;
+}
+
+/* ========= SOFT GLOW ========= */
+
+body::after{
+
+content:'';
+
+position:fixed;
+
+top:-100px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:380px;
+height:380px;
+
+background:#00ff8810;
+
+filter:blur(45px);
+
+border-radius:50%;
+
+pointer-events:none;
+
+z-index:-3;
+
+opacity:.5;
+}
+
+/* ========= SCANLINE ========= */
+
+.scanline{
+
+position:fixed;
+inset:0;
+
+pointer-events:none;
+
+background:
+linear-gradient(
+to bottom,
+transparent 96%,
+rgba(0,255,136,.03) 100%
+);
+
+background-size:100% 8px;
+
+opacity:.06;
+
+z-index:9999;
+}
+
+/* ========= CONTAINER ========= */
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:40px 24px;
+}
+
+/* ========= NAVBAR ========= */
+
+.top-navbar{
+
+position:fixed;
+
+top:16px;
+right:16px;
+
+z-index:9999;
+}
+
+/* ========= BUTTONS ========= */
+
+.market-toggle,
+.connect-btn,
+.mint-btn,
+.buy-btn{
+
+background:
+linear-gradient(
+135deg,
+#00ff88,
+#00cc6a
+);
+
+color:#02150b;
+
+font-family:'Orbitron';
+
+font-weight:700;
+
+cursor:pointer;
+
+border:none;
+
+transition:.25s ease;
+
+will-change:transform;
+}
+
+.market-toggle{
+
+padding:12px 18px;
+
+border-radius:14px;
+
+font-size:.75rem;
+
+letter-spacing:2px;
+}
+
+.market-toggle:hover,
+.connect-btn:hover,
+.mint-btn:hover,
+.buy-btn:hover{
+
+transform:translateY(-2px);
+}
+
+/* CONNECTED STATE */
+
+.connect-btn.connected{
+
+background:
+linear-gradient(
+135deg,
+#ff4466,
+#cc1133
+);
+
+color:#fff;
+
+}
+
+/* ========= MARKET ========= */
+
+.market-sidebar{
+
+position:fixed;
+
+top:0;
+right:-430px;
+
+width:430px;
+
+height:100vh;
+
+background:#08150df2;
+
+border-left:
+1px solid rgba(0,255,136,.12);
+
+padding:24px;
+
+overflow-y:auto;
+
+z-index:99999;
+
+transition:right .3s ease;
+}
+
+.market-sidebar.active{
+right:0;
+}
+
+.market-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+}
+
+.market-title{
+
+font-size:1.1rem;
+
+font-family:'Orbitron';
+
+letter-spacing:2px;
+
+color:#66ffb2;
+}
+
+.close-market{
+
+background:none;
+
+border:none;
+
+color:#66ffb2;
+
+font-size:1.5rem;
+
+cursor:pointer;
+}
+
+/* ========= HERO ========= */
+
+.hero{
+
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:40px;
+
+align-items:center;
+
+padding-top:60px;
+
+margin-bottom:60px;
+}
+
+.hero-left{
+text-align:left;
+}
+
+.badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:999px;
+
+background:#00ff8810;
+
+border:1px solid #00ff8822;
+
+font-size:.75rem;
+
+letter-spacing:2px;
+
+color:#66ffb2;
+
+margin-bottom:24px;
+}
+
+.hero h1{
+
+font-size:5rem;
+
+font-family:'Orbitron';
+
+line-height:.9;
+
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#66ffb2
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 12px #00ff8844;
+}
+
+.hero p{
+
+margin-top:22px;
+
+max-width:600px;
+
+font-size:1rem;
+
+line-height:1.7;
+
+color:var(--text-dim);
+}
+
+/* ========= HERO BANNER ========= */
+
+.hero-banner{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.banner-wrap{
+
+position:relative;
+
+width:100%;
+
+max-width:520px;
+
+border-radius:28px;
+
+overflow:hidden;
+
+border:1px solid rgba(0,255,136,.12);
+
+background:#08150d;
+
+box-shadow:
+0 0 30px rgba(0,255,136,.12);
+
+transition:.3s ease;
+}
+
+.banner-wrap:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 45px rgba(0,255,136,.2);
+}
+
+.side-banner{
+
+width:100%;
+height:auto;
+
+display:block;
+
+object-fit:cover;
+}
+
+.banner-overlay{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(0,0,0,.15)
+);
+
+pointer-events:none;
+}
+
+/* ========= MAIN ========= */
+
+.top-ui{
+
+display:grid;
+
+grid-template-columns:1fr 340px;
+
+gap:30px;
+
+align-items:start;
+}
+
+/* ========= CARD ========= */
+
+.wallet-card{
+
+background:#0b1a12ee;
+
+border:1px solid rgba(0,255,136,.08);
+
+border-radius:24px;
+
+padding:28px;
+
+text-align:center;
+
+overflow:hidden;
+
+box-shadow:
+0 0 20px rgba(0,255,136,.08);
+}
+
+/* ========= CONNECT ========= */
+
+.connect-btn{
+
+width:100%;
+
+padding:16px;
+
+border-radius:18px;
+
+letter-spacing:2px;
+
+font-size:.95rem;
+}
+
+#wallet-address{
+
+margin-top:16px;
+
+font-size:.9rem;
+
+color:#66ffb2;
+}
+
+/* ========= STATS ========= */
+
+.stats-row{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px;
+
+margin-top:24px;
+}
+
+.stat-box{
+
+background:#08150d;
+
+border:1px solid #11331f;
+
+padding:18px;
+
+border-radius:18px;
+}
+
+.stat-label{
+
+font-size:.75rem;
+
+letter-spacing:2px;
+
+color:#66ffb2;
+}
+
+.stat-value{
+
+margin-top:8px;
+
+font-size:1.5rem;
+
+font-family:'Orbitron';
+}
+
+/* ========= SUMMON ========= */
+
+.summon-wrapper{
+text-align:center;
+}
+
+.summon-area{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin-top:20px;
+}
+
+.summon-circle{
+
+width:300px;
+height:300px;
+
+border-radius:50%;
+
+position:relative;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+radial-gradient(
+circle,
+#00ff8815,
+transparent 70%
+);
+
+box-shadow:
+0 0 30px rgba(0,255,136,.12);
+}
+
+.summon-circle::before{
+
+content:'';
+
+position:absolute;
+
+inset:18px;
+
+border-radius:50%;
+
+border:
+1px solid rgba(0,255,136,.12);
+
+animation:
+spin 18s linear infinite;
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+}
+
+/* ========= RITUAL CARD ========= */
+
+.ritual-card{
+
+width:180px;
+height:250px;
+
+border-radius:24px;
+
+background:
+linear-gradient(
+180deg,
+#102117,
+#07110b
+);
+
+border:1px solid rgba(0,255,136,.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:4rem;
+
+overflow:hidden;
+
+box-shadow:
+0 0 20px rgba(0,255,136,.12);
+
+animation:
+floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-5px);
+}
+
+100%{
+transform:translateY(0px);
+}
+}
+
+.ritual-card img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+}
+
+/* ========= MINT ========= */
+
+.mint-btn{
+
+margin-top:28px;
+
+padding:16px 38px;
+
+border-radius:18px;
+
+letter-spacing:2px;
+
+font-size:.95rem;
+}
+
+.mint-desc,
+.scan-status{
+
+margin-top:14px;
+
+letter-spacing:2px;
+
+color:#00ff88;
+
+font-size:.82rem;
+
+opacity:.85;
+}
+
+/* ========= INFO PANEL ========= */
+
+.info-panel{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+}
+
+.info-card{
+
+background:#0b1a12dd;
+
+border:1px solid rgba(0,255,136,.08);
+
+border-radius:22px;
+
+padding:22px;
+}
+
+.info-card h3{
+
+font-family:'Orbitron';
+
+font-size:1rem;
+
+margin-bottom:12px;
+
+color:#66ffb2;
+}
+
+.info-card p{
+
+font-size:.92rem;
+
+line-height:1.7;
+
+color:var(--text-dim);
+}
+
+/* ========= COLLECTION ========= */
+
+.collection-section{
+
+margin-top:70px;
+
+background:#0b1a12dd;
+
+border:
+1px solid rgba(0,255,136,.08);
+
+border-radius:28px;
+
+padding:32px;
+}
+
+.collection-title{
+
+font-size:1.8rem;
+
+font-family:'Orbitron';
+
+margin-bottom:28px;
+
+text-align:center;
+}
+
+.filter-tabs{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin-bottom:30px;
+}
+
+.filter-btn{
+
+padding:10px 16px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+background:#08150d;
+
+border:1px solid #11331f;
+
+color:#66ffb2;
+
+transition:.2s;
+}
+
+.filter-btn.active{
+
+background:#00cc6a;
+
+color:#02150b;
+}
+
+/* ========= NFT ========= */
+
+.collection-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fill,minmax(220px,1fr));
+
+gap:22px;
+}
+
+.nft-card{
+
+background:
+linear-gradient(
+180deg,
+#102117,
+#07110b
+);
+
+border-radius:22px;
+
+overflow:hidden;
+
+border:1px solid rgba(0,255,136,.08);
+
+transition:transform .25s ease;
+}
+
+.nft-card:hover{
+transform:translateY(-4px);
+}
+
+.nft-image{
+height:240px;
+overflow:hidden;
+}
+
+.nft-image img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:transform .3s ease;
+}
+
+.nft-card:hover img{
+transform:scale(1.03);
+}
+
+.nft-info{
+padding:18px;
+}
+
+/* ========= HISTORY ========= */
+
+.history-box{
+
+margin-top:40px;
+
+background:#0b1a12dd;
+
+border:
+1px solid rgba(0,255,136,.08);
+
+border-radius:24px;
+
+padding:24px;
+}
+
+.history-title{
+
+font-size:1.3rem;
+
+font-family:'Orbitron';
+
+margin-bottom:18px;
+}
+
+.history-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+}
+
+.history-item{
+
+padding:14px;
+
+border-radius:16px;
+
+background:#08150d;
+
+border:1px solid #11331f;
+
+color:#66ffb2;
+}
+
+/* ========= MODAL ========= */
+
+.modal{
+
+display:none;
+
+position:fixed;
+inset:0;
+
+background:#000000cc;
+
+justify-content:center;
+align-items:center;
+
+z-index:99999;
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal-content{
+
+background:#08150d;
+
+border:1px solid #00ff8833;
+
+padding:32px;
+
+border-radius:26px;
+
+text-align:center;
+}
+
+/* ========= MOBILE ========= */
+
+@media(max-width:980px){
+
+.container{
+padding:18px;
+}
+
+/* HERO */
+
+.hero{
+
+grid-template-columns:1fr;
+
+gap:24px;
+
+padding-top:28px;
+
+text-align:center;
+}
+
+.hero-left{
+text-align:center;
+}
+
+.hero h1{
+font-size:2.6rem;
+line-height:1;
+}
+
+.hero p{
+font-size:.92rem;
+margin-inline:auto;
+}
+
+/* BANNER */
+
+.banner-wrap{
+max-width:100%;
+}
+
+/* LAYOUT */
+
+.top-ui{
+grid-template-columns:1fr;
+gap:24px;
+}
+
+/* CARD */
+
+.wallet-card{
+padding:20px;
+}
+
+/* SUMMON */
+
+.summon-area{
+margin-top:10px;
+}
+
+.summon-circle{
+width:260px;
+height:260px;
+}
+
+.ritual-card{
+width:145px;
+height:205px;
+font-size:3rem;
+}
+
+/* BUTTON */
+
+.mint-btn{
+width:100%;
+padding:16px;
+margin-top:24px;
+}
+
+/* TEXT */
+
+.mint-desc,
+.scan-status{
+font-size:.72rem;
+}
+
+/* STATS */
+
+.stats-row{
+grid-template-columns:1fr;
+}
+
+/* INFO PANEL */
+
+.info-panel{
+gap:16px;
+}
+
+/* MARKET */
+
+.market-sidebar{
+width:100%;
+right:-100%;
+padding:20px;
+}
+
+/* COLLECTION */
+
+.collection-section{
+padding:20px;
+margin-top:50px;
+}
+
+.collection-grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+.nft-image{
+height:220px;
+}
+
+/* HISTORY */
+
+.history-box{
+padding:20px;
+}
+
+/* NAVBAR */
+
+.top-navbar{
+top:10px;
+right:10px;
+}
+
+.market-toggle{
+padding:10px 14px;
+font-size:.65rem;
+}
+}</style><script>const nftDatabase = [
+
+{
+id:1,
+name:'Cat Signal Bronze',
+rarity:'legendary',
+price:'2.5 ETH',
+image:'assets/nft1.png'
+},
+
+{
+id:2,
+name:'Cyber Oni',
+rarity:'epic',
+price:'1.2 ETH',
+image:'assets/nft2.png'
+},
+
+{
+id:3,
+name:'Void Android',
+rarity:'rare',
+price:'0.6 ETH',
+image:'assets/nft3.png'
+},
+
+{
+id:4,
+name:'Neon Rabbit',
+rarity:'common',
+price:'0.2 ETH',
+image:'assets/nft4.png'
+}
+
+];
+
+/* STORAGE */
+
+let collection =
+JSON.parse(
+localStorage.getItem('ritualCollection')
+) || {};
+
+let totalMints =
+Number(
+localStorage.getItem('ritualMints')
+) || 0;
+
+let marketItems =
+JSON.parse(
+localStorage.getItem('ritualMarket')
+) || [];
+
+/* ELEMENTS */
+
+const collectionGrid =
+document.getElementById('collection-grid');
+
+const marketGrid =
+document.getElementById('market-grid');
+
+const mintCount =
+document.getElementById('mint-count');
+
+const historyList =
+document.getElementById('history-list');
+
+/* SAVE */
+
+function saveData(){
+
+localStorage.setItem(
+'ritualCollection',
+JSON.stringify(collection)
+);
+
+localStorage.setItem(
+'ritualMints',
+totalMints
+);
+
+localStorage.setItem(
+'ritualMarket',
+JSON.stringify(marketItems)
+);
+
+}
+
+/* MARKET TOGGLE */
+
+function toggleMarket(){
+
+document
+.getElementById('market-sidebar')
+.classList.toggle('active');
+
+}
+
+/* RANDOM NFT */
+
+function getRandomNFT(){
+
+const rand = Math.random()*100;
+
+if(rand < 1){
+
+return nftDatabase[0];
+
+}
+
+else if(rand < 10){
+
+return nftDatabase[1];
+
+}
+
+else if(rand < 40){
+
+return nftDatabase[2];
+
+}
+
+return nftDatabase[3];
+
+}
+
+/* STATS */
+
+function updateStats(){
+
+if(mintCount){
+
+mintCount.innerText =
+totalMints;
+
+}
+
+const supply =
+document.getElementById('live-supply');
+
+if(supply){
+
+supply.innerText =
+5000 - totalMints;
+
+}
+
+}
+
+/* SOUND */
+
+function playSummonSound(){
+
+const audio =
+new Audio(
+'https://actions.google.com/sounds/v1/science_fiction/alien_beam.ogg'
+);
+
+audio.volume = 0.4;
+
+audio.play();
+
+}
+
+/* PARTICLES */
+
+function createParticles(){
+
+for(let i=0;i<25;i++){
+
+const particle =
+document.createElement('div');
+
+particle.className =
+'particle';
+
+particle.style.left =
+Math.random()*100 + 'vw';
+
+particle.style.animationDuration =
+(2 + Math.random()*3) + 's';
+
+particle.style.opacity =
+Math.random();
+
+document.body.appendChild(particle);
+
+setTimeout(()=>{
+
+particle.remove();
+
+},4000);
+
+}
+
+}
+
+/* FLASH */
+
+function cinematicFlash(){
+
+const flash =
+document.createElement('div');
+
+flash.className =
+'flash active';
+
+document.body.appendChild(flash);
+
+setTimeout(()=>{
+
+flash.remove();
+
+},700);
+
+}
+
+/* HISTORY */
+
+function addHistory(text){
+
+if(!historyList) return;
+
+const item =
+document.createElement('div');
+
+item.className =
+'history-item';
+
+item.innerText = text;
+
+historyList.prepend(item);
+
+if(historyList.children.length > 8){
+
+historyList.lastChild.remove();
+
+}
+
+}
+
+/* SUMMON NFT */
+
+async function summonNFT(){
+
+const display =
+document.getElementById('gacha-display');
+
+const scanText =
+document.getElementById('scan-text');
+
+display.classList.add('summoning');
+
+playSummonSound();
+
+createParticles();
+
+if(scanText){
+
+scanText.innerText =
+'AI ENTITY SCANNING...';
+
+}
+
+const spinImages =
+nftDatabase.map(n=>n.image);
+
+let i = 0;
+
+const spin = setInterval(()=>{
+
+display.innerHTML = `
+<img src="${spinImages[i % spinImages.length]}">
+`;
+
+i++;
+
+},120);
+
+await new Promise(
+r=>setTimeout(r,2500)
+);
+
+clearInterval(spin);
+
+display.classList.remove('summoning');
+
+cinematicFlash();
+
+const nft = getRandomNFT();
+
+display.innerHTML = `
+<img src="${nft.image}">
+`;
+
+display.className =
+`ritual-card ${nft.rarity}`;
+
+collection[nft.id] =
+(collection[nft.id] || 0) + 1;
+
+totalMints++;
+
+saveData();
+
+updateStats();
+
+renderCollection();
+
+showModal(nft);
+
+addHistory(
+`SUMMONED ${nft.name} • ${nft.rarity.toUpperCase()}`
+);
+
+if(scanText){
+
+scanText.innerText =
+`${nft.rarity.toUpperCase()} ENTITY DETECTED`;
+
+}
+
+setTimeout(()=>{
+
+if(scanText){
+
+scanText.innerText =
+'AI ENTITY SCANNER READY';
+
+}
+
+},3000);
+
+}
+
+/* COLLECTION */
+
+function renderCollection(filter='all'){
+
+const items =
+Object.entries(collection);
+
+if(items.length === 0){
+
+collectionGrid.innerHTML = `
+<div class="empty">
+No entities collected yet.
+</div>
+`;
+
+return;
+
+}
+
+collectionGrid.innerHTML = '';
+
+items.forEach(([id,count])=>{
+
+const nft =
+nftDatabase.find(
+n=>n.id == id
+);
+
+if(
+filter !== 'all'
+&&
+nft.rarity !== filter
+){
+return;
+}
+
+const card =
+document.createElement('div');
+
+card.className =
+`nft-card ${nft.rarity}`;
+
+card.innerHTML = `
+
+<div class="nft-count">
+x${count}
+</div>
+
+<div class="nft-image">
+<img src="${nft.image}">
+</div>
+
+<div class="nft-info">
+
+<div class="nft-name">
+${nft.name}
+</div>
+
+<div class="nft-rarity">
+${nft.rarity.toUpperCase()}
+</div>
+
+<div class="market-price">
+${nft.price}
+</div>
+
+<button
+class="buy-btn"
+onclick="listToMarket(${nft.id})"
+>
+SELL ON MARKET
+</button>
+
+</div>
+`;
+
+collectionGrid.appendChild(card);
+
+});
+
+}
+
+/* LIST NFT */
+
+function listToMarket(id){
+
+const nft =
+nftDatabase.find(
+n=>n.id == id
+);
+
+if(
+!collection[id]
+||
+collection[id] <= 0
+){
+return;
+}
+
+collection[id]--;
+
+marketItems.push({
+
+id:nft.id,
+name:nft.name,
+rarity:nft.rarity,
+price:nft.price,
+image:nft.image,
+seller:'0x' +
+Math.random()
+.toString(16)
+.slice(2,8)
+
+});
+
+if(collection[id] <= 0){
+
+delete collection[id];
+
+}
+
+saveData();
+
+renderCollection();
+
+renderMarket();
+
+addHistory(
+`LISTED ${nft.name} ON BLACK MARKET`
+);
+
+}
+
+/* RENDER MARKET */
+
+function renderMarket(){
+
+if(!marketGrid) return;
+
+if(marketItems.length === 0){
+
+marketGrid.innerHTML = `
+<div class="empty">
+No market listings yet.
+</div>
+`;
+
+return;
+
+}
+
+marketGrid.innerHTML = '';
+
+marketItems.forEach((item,index)=>{
+
+const card =
+document.createElement('div');
+
+card.className =
+'market-card';
+
+card.innerHTML = `
+
+<div class="market-image">
+<img src="${item.image}">
+</div>
+
+<div class="market-info">
+
+<div class="market-name">
+${item.name}
+</div>
+
+<div class="nft-rarity">
+${item.rarity.toUpperCase()}
+</div>
+
+<div class="market-price">
+${item.price}
+</div>
+
+<div class="seller-tag">
+SELLER: ${item.seller}
+</div>
+
+<button
+class="buy-btn"
+onclick="buyMarketItem(${index})"
+>
+BUY ENTITY
+</button>
+
+</div>
+`;
+
+marketGrid.appendChild(card);
+
+});
+
+}
+
+/* BUY NFT */
+
+function buyMarketItem(index){
+
+const item =
+marketItems[index];
+
+collection[item.id] =
+(collection[item.id] || 0) + 1;
+
+marketItems.splice(index,1);
+
+saveData();
+
+renderCollection();
+
+renderMarket();
+
+addHistory(
+`PURCHASED ${item.name}`
+);
+
+}
+
+/* MODAL */
+
+function showModal(nft){
+
+const modal =
+document.getElementById('modal');
+
+const modalCard =
+document.getElementById('modal-card');
+
+modalCard.innerHTML = `
+
+<div class="nft-card ${nft.rarity} modal-card">
+
+<div class="nft-image">
+<img src="${nft.image}">
+</div>
+
+<div class="nft-info">
+
+<div class="nft-name">
+${nft.name}
+</div>
+
+<div class="nft-rarity">
+${nft.rarity.toUpperCase()}
+</div>
+
+<div class="market-price">
+${nft.price}
+</div>
+
+</div>
+
+</div>
+`;
+
+modal.classList.add('active');
+
+}
+
+function closeModal(){
+
+document
+.getElementById('modal')
+.classList.remove('active');
+
+}
+
+/* FILTER */
+
+document
+.querySelectorAll('.filter-btn')
+.forEach(btn=>{
+
+btn.addEventListener('click',()=>{
+
+document
+.querySelectorAll('.filter-btn')
+.forEach(
+b=>b.classList.remove('active')
+);
+
+btn.classList.add('active');
+
+renderCollection(
+btn.dataset.filter
+);
+
+});
+
+});
+
+/* MINT */
+
+document
+.getElementById('mint-button')
+.addEventListener(
+'click',
+async()=>{
+
+if(!window.ethereum){
+
+alert('No wallet detected');
+
+return;
+
+}
+
+try{
+
+const chainId =
+await ethereum.request({
+
+method:'eth_chainId'
+
+});
+
+if(chainId !== '0xaa36a7'){
+
+alert(
+'Switch to Sepolia Testnet'
+);
+
+return;
+
+}
+
+const accounts =
+await ethereum.request({
+
+method:'eth_requestAccounts'
+
+});
+
+const wallet =
+accounts[0];
+
+const mintBtn =
+document.getElementById('mint-button');
+
+mintBtn.innerText =
+'CONFIRM TRANSACTION';
+
+await ethereum.request({
+
+method:'eth_sendTransaction',
+
+params:[{
+
+from:wallet,
+
+to:wallet,
+
+value:'0x38D7EA4C68000'
+
+}]
+
+});
+
+mintBtn.innerText =
+'AI SCANNING...';
+
+await summonNFT();
+
+mintBtn.innerText =
+'SUMMON ENTITY';
+
+}
+
+catch(err){
+
+console.log(err);
+
+alert(
+'Transaction cancelled'
+);
+
+document
+.getElementById('mint-button')
+.innerText =
+'SUMMON ENTITY';
+
+}
+
+}
+);
+
+/* INIT */
+
+renderCollection();
+
+renderMarket();
+
+updateStats();</script>
