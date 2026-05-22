@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritual Cyberpunk NFT</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <div class="top-navbar">
+    <button class="market-toggle" onclick="toggleMarket()">MARKET</button>
+  </div>
+
+  <!-- ================= MARKET SIDEBAR ================= -->
+  <div class="market-sidebar" id="market-sidebar">
+
+    <div class="market-header">
+      <div class="market-title">MARKET</div>
+      <button class="close-market" onclick="toggleMarket()">✕</button>
+    </div>
+
+    <div class="market-grid" id="market-grid">
+      <!-- MARKET ITEMS AUTO -->
+    </div>
+
+  </div>
+
+  <!-- ================= MAIN ================= -->
+  <div class="container">
+
+    <!-- ================= HERO ================= -->
+    <div class="hero">
+
+      <div class="hero-left">
+        <div class="badge">RITUAL TESTNET</div>
+        <h1>SUMMON<br>CYBER ENTITY</h1>
+        <p>
+          Mint futuristic cyberpunk entities powered by Ritual Testnet.
+          Every summon unlocks a mysterious AI character from the digital realm.
+        </p>
+      </div>
+
+      <!-- HERO BANNER -->
+      <div class="hero-banner">
+        <div class="banner-wrap">
+          <img src="assets/banner.png" class="side-banner" />
+          <div class="banner-overlay"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= MAIN UI ================= -->
+    <div class="top-ui">
+
+      <!-- LEFT -->
+      <div class="wallet-card">
+
+        <!-- CONNECT -->
+        <button id="connect-wallet" class="connect-btn">CONNECT WALLET</button>
+        <div id="wallet-address">Wallet not connected</div>
+
+        <!-- STATS -->
+        <div class="stats-row">
+
+          <div class="stat-box">
+            <div class="stat-label">TOTAL MINTS</div>
+            <div class="stat-value" id="mint-count">0</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">SUPPLY LEFT</div>
+            <div class="stat-value" id="live-supply">5000</div>
+          </div>
+
+        </div>
+
+        <!-- SUMMON -->
+        <div class="summon-wrapper">
+
+          <div class="summon-area">
+            <div class="summon-circle">
+              <div class="ritual-card" id="gacha-display">?</div>
+            </div>
+          </div>
+
+          <button class="mint-btn" id="mint-button">SUMMON ENTITY</button>
+          <div class="mint-desc">POWERED BY RITUAL TESTNET</div>
+          <div class="scan-status" id="scan-text">AI ENTITY SCANNER READY</div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE INFO -->
+      <div class="info-panel">
+
+        <div class="info-card">
+          <h3>DIGITAL RITUAL</h3>
+          <p>Enter the cyber realm and summon futuristic AI entities powered by Ritual Testnet technology.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>RARITY SYSTEM</h3>
+          <p>Unlock Common, Rare, Epic, and Legendary entities with unique futuristic visuals.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>ONCHAIN COLLECTION</h3>
+          <p>Build your personal cyber entity archive directly connected to your wallet.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= COLLECTION ================= -->
+    <div class="collection-section">
+
+      <div class="collection-title">ENTITY COLLECTION</div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="legendary">LEGENDARY</button>
+        <button class="filter-btn" data-filter="epic">EPIC</button>
+        <button class="filter-btn" data-filter="rare">RARE</button>
+        <button class="filter-btn" data-filter="common">COMMON</button>
+      </div>
+
+      <div class="collection-grid" id="collection-grid">
+        <div class="empty">No entities collected yet.</div>
+      </div>
+
+    </div>
+
+    <!-- ================= HISTORY ================= -->
+    <div class="history-box">
+
+      <div class="history-title">LATEST SUMMONS</div>
+
+      <div class="history-list" id="history-list">
+        <div class="history-item">No summons yet</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ================= MODAL ================= -->
+  <!-- FIX: "mo\ndal-content" diperbaiki jadi "modal-content" -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div id="modal-card"></div>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPT ================= -->
+  <!-- FIX: hapus inline toggleMarket() karena sudah ada di script.js -->
+  <script src="script.js"></script>
+
+</body>
+</html>
